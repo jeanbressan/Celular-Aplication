@@ -28,18 +28,67 @@ Widget build(BuildContext context) {
                 top: Radius.circular(45),
               ),
             ),
-            child: const Column(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 //Nome
-                CampoTextCustom(label: 'Nome', icon: Icons.person,),
-                //E-mail
-                CampoTextCustom(label: 'CPF', icon: Icons.contacts,),
-                //Celular
-                CampoTextCustom(label: 'E-mail', icon: Icons.email,),
+                // const CampoTextCustom(label: 'Nome', icon: Icons.person,),
                 //CPF
-                CampoTextCustom(label: 'Celular', icon: Icons.call,),
+                //const CampoTextCustom(label: 'CPF', icon: Icons.contacts,),
+                //E-mail
+                const CampoTextCustom(label: 'E-mail', icon: Icons.email,),
+                //CPF
+                //const CampoTextCustom(label: 'Celular', icon: Icons.call,),
                 //Senha
-                CampoTextCustom(label: 'Senha', icon: Icons.lock, isobscure: true,),
+                const CampoTextCustom(label: 'Senha', icon: Icons.lock, isSecret: true,),
+
+                //Botão entrar
+                SizedBox( 
+                 height: 50,
+                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 226, 241, 2),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18)
+                    )
+                  ),
+                  onPressed: () {}, 
+                  child: const Text('Entrar', style: TextStyle(color: Colors.black, fontSize: 18),),
+                  ),
+                ), 
+
+                // Link Recuperar a senha
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {}, child: const Text('Recuperar sua senha',
+                    style: TextStyle(color: Colors.black),
+                    ),
+                  )
+                ),
+
+                // Dividor
+
+                Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        color: Colors.grey.withAlpha(90),
+                        thickness: 2,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 18),
+                      child: Text('Ou'),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        color: Colors.grey.withAlpha(90),
+                        thickness: 2,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),

@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 
-class CampoTextCustom extends StatelessWidget {
+class CampoTextCustom extends StatefulWidget {
   final IconData icon;
   final String label;
-  final bool isobscure;
-  const CampoTextCustom({super.key, required this.icon, required this.label, this.isobscure = false});
+  final bool isSecret;
+
+  const CampoTextCustom({super.key, required this.icon, required this.label, this.isSecret = false});
+
+  @override
+  State<CampoTextCustom> createState() => _CampoTextCustomState();
+}
+
+class _CampoTextCustomState extends State<CampoTextCustom> {
+  bool isobscure = false;
+  @override
+  void initState() {
+    super.initState();
+    isobscure = widget.isSecret;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +26,13 @@ class CampoTextCustom extends StatelessWidget {
       child: TextFormField(
         obscureText: isobscure,
         decoration: InputDecoration(
-          prefixIcon: Icon(icon),
-          labelText: label,
+          prefixIcon: Icon(widget.icon),
+          suffixIcon: widget.isSecret ? IconButton(onPressed: (){
+            setState(() {
+              isobscure = !isobscure;
+            });
+          }, icon: Icon(isobscure ? Icons.visibility : Icons.visibility_off),) : null,
+          labelText: widget.label,
           isDense: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
