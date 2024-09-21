@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frutas_varejo/src/authenticator/login_screen.dart';
+import 'package:frutas_varejo/src/configuraco/cores_customizadas.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        colorSchemeSeed: const Color.fromARGB(255, 226, 241, 2),
+        colorSchemeSeed: CoresCustomizadas.appCorCustomizada,
         useMaterial3: true,
         brightness: Brightness.dark,
       ),
